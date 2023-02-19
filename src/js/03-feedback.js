@@ -25,13 +25,9 @@ localStorage.removeItem(STORAGE_KEY)
 }
 
 function populateTextarea(){
-const data = parsedData;
-const email = document.querySelector('.feedback-form input');;
-const message = document.querySelector('.feedback-form textarea');
-if (data) {
-    return (
-  (email.value = data.email || ' ' ) ,
- (message.value = data.message || ' ')
- )
-}}
-;
+if (parsedData) {
+  const formKeys = Object.keys(parsedData);
+  formKeys.map(element => {
+      document.querySelector(`[name='${element}']`).value = parsedData[element];
+  })}
+}
