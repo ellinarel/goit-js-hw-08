@@ -9,8 +9,9 @@ const form = document.querySelector(".feedback-form")
 form.addEventListener("submit", onFormSubmit)
 form.addEventListener("input", throttle(onFormData,500))
 
-
+let parsedData;
 populateTextarea()
+
 
 function onFormData(e) {
     formData[e.target.name] = e.target.value;
